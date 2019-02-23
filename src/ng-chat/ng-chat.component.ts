@@ -415,7 +415,7 @@ export class NgChat implements OnInit, IChatController {
                     result.forEach((message) => this.assertMessageType(message));
     
                     //window.messages = result.concat(window.messages);
-                    window.messages = result.concat(window.messages);
+                    window.messages = result
                     window.isLoadingHistory = false;
     
                     setTimeout(() => this.onFetchMessageHistoryLoaded(result, window, ScrollDirection.Bottom));
