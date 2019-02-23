@@ -414,6 +414,7 @@ export class NgChat implements OnInit, IChatController {
                 map((result: Message[]) => {
                     result.forEach((message) => this.assertMessageType(message));
     
+                    //window.messages = result.concat(window.messages);
                     window.messages = result.concat(window.messages);
                     window.isLoadingHistory = false;
     
@@ -457,7 +458,7 @@ export class NgChat implements OnInit, IChatController {
         if (participant && message)
         {
             let chatWindow = this.openChatWindow(participant);
-
+            if(1) return;
             this.assertMessageType(message);
 
             if (!chatWindow[1] || !this.historyEnabled){
@@ -532,6 +533,7 @@ export class NgChat implements OnInit, IChatController {
         }
         else
         {
+            this.fetchMessageHistory(openedWindow)
             // Returns the existing chat window     
             return [openedWindow, false];       
         }
